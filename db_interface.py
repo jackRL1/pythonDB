@@ -41,8 +41,11 @@ def Update():
 
 
 def Delete():
-    cursor.execute('''DELETE FROM 'vehicle' WHERE make = ?''',(str(MAKE),))
+    param = str(MAKE.get())
+    cursor.execute('DELETE FROM vehicle WHERE Make = (?)', [param])
     conn.commit()    
+    MAKE.set("")
+    Update()    
 
 
 def Exit():
@@ -129,7 +132,7 @@ btn_read = Button(Buttons, width=10, text="Read", command=Read )
 btn_read.pack(side=LEFT)
 btn_update = Button(Buttons, width=10, text="Update", command=Update)
 btn_update.pack(side=LEFT)
-btn_delete = Button(Buttons, width=10, text="Delete", state=DISABLE) #command=Delete
+btn_delete = Button(Buttons, width=10, text="Delete", command=Delete) #state=DISABLE
 btn_delete.pack(side=LEFT)
 btn_exit = Button(Buttons, width=10, text="Exit", command=Exit)
 btn_exit.pack(side=LEFT)
