@@ -35,11 +35,11 @@ def Read():
     # conn.close()
     txt_result.config(text="Successfully read the data from database", fg="black")
 
-
+# reinitializes DB view
 def Update():
     Read()
 
-
+# Deletes entry by make
 def Delete():
     param = str(MAKE.get())
     cursor.execute('DELETE FROM vehicle WHERE Make = (?)', [param])
@@ -47,7 +47,7 @@ def Delete():
     MAKE.set("")
     Update()    
 
-
+#exits UI and closes program
 def Exit():
     result = tkMessageBox.askquestion('Simple Car Database', 'Are you sure you want to exit?', icon="warning")
     if result == 'yes':
