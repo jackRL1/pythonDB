@@ -56,7 +56,7 @@ def Exit():
         conn.close()
         exit()
 
-
+# initial gui parameters
 root = Tk()
 root.title("Simple Car Database")
 screen_width = root.winfo_screenwidth()
