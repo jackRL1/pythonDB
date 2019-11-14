@@ -1,3 +1,7 @@
+"""
+This program is a GUI for a database and tables using the CRUD method. 
+"""
+
 from tkinter import*
 import sqlite3
 import tkinter.ttk as ttk
